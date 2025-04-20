@@ -325,3 +325,11 @@ td {
   padding: 0.8rem 2rem 0.8rem 2rem;
   font-size: 1.6rem;
 }
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr {
+  background-color: white;
+}

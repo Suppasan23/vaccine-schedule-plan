@@ -6,21 +6,8 @@ document
     const birthDate = new Date(
       document.querySelector(".kid-birth-date-input").value
     );
-    const selectedServiceDay = document.querySelector(
-      ".hospital-service-date-input"
-    ).value;
 
     const today = new Date();
-
-    const dayMap = {
-      sunday: 0,
-      monday: 1,
-      tuesday: 2,
-      wednesday: 3,
-      thursday: 4,
-      friday: 5,
-      saturday: 6,
-    };
 
     const dayNameTH = [
       "อาทิตย์",
@@ -31,8 +18,6 @@ document
       "ศุกร์",
       "เสาร์",
     ];
-
-    const serviceDayIndex = dayMap[selectedServiceDay];
 
     let ageYears = today.getFullYear() - birthDate.getFullYear();
     let ageMonths = today.getMonth() - birthDate.getMonth();
@@ -73,21 +58,38 @@ document
 
     const rows = intervals
       .map((interval) => {
+        // Step 1: Calculate dueDate
         const dueDate = new Date(birthDate);
         dueDate.setMonth(dueDate.getMonth() + interval.months);
 
-        const scheduledDate = new Date(dueDate);
-        const dayDiff = (serviceDayIndex + 7 - scheduledDate.getDay()) % 7;
-        scheduledDate.setDate(scheduledDate.getDate() + dayDiff);
+        // Step 2: Function to get second Wednesday of a month
+        function getSecondWednesday(year, month) {
+          const firstDay = new Date(year, month, 1);
+          const firstWednesdayOffset = (3 - firstDay.getDay() + 7) % 7; // 3 = Wednesday
+          const secondWednesdayDate = 1 + firstWednesdayOffset + 7;
+          return new Date(year, month, secondWednesdayDate);
+        }
+
+        // Step 3: Get second Wednesday of the same month
+        let scheduledDate = getSecondWednesday(
+          dueDate.getFullYear(),
+          dueDate.getMonth()
+        );
+
+        // Step 4: If it's before dueDate, go to next month's second Wednesday
+        if (scheduledDate < dueDate) {
+          const nextMonth = dueDate.getMonth() + 1;
+          scheduledDate = getSecondWednesday(dueDate.getFullYear(), nextMonth);
+        }
 
         return `
-            <tr>
-              <td>${interval.label}</td>
-              <td>${interval.vaccine}</td>
-              <td>${formatDateWithDay(dueDate)}</td>
-              <td>${formatDateWithDay(scheduledDate)}</td>
-            </tr>
-          `;
+          <tr>
+            <td>${interval.label}</td>
+            <td>${interval.vaccine}</td>
+            <td>${formatDateWithDay(dueDate)}</td>
+            <td>${formatDateWithDay(scheduledDate)}</td>
+          </tr>
+        `;
       })
       .join("");
 
