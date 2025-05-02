@@ -80,6 +80,16 @@
   }
 }
 
+/*Input & Button 580-------------------------------------------------*/
+@media (max-width: 36.25em /*580÷16*/) {
+  .hospital-service-date {
+    /* FLEXBOX */
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+}
+
 /*Input & Button 544-------------------------------------------------*/
 @media (max-width: 34em /*544÷16*/) {
   .kid-birth-date-input {

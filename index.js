@@ -38,14 +38,14 @@ document
     ).textContent = `ปัจจุบันเด็กอายุ: ${ageYears} ปี ${ageMonths} เดือน ${ageDays} วัน`;
 
     const intervals = [
-      { label: "2 เดือน", months: 2, vaccine: "วัคซีน 1" },
-      { label: "4 เดือน", months: 4, vaccine: "วัคซีน 2" },
-      { label: "6 เดือน", months: 6, vaccine: "วัคซีน 3" },
-      { label: "9 เดือน", months: 9, vaccine: "วัคซีน 4" },
-      { label: "1 ปี", months: 12, vaccine: "วัคซีน 5" },
-      { label: "1 ปี 6 เดือน", months: 18, vaccine: "วัคซีน 6" },
-      { label: "2 ปี 6 เดือน", months: 30, vaccine: "วัคซีน 7" },
-      { label: "4 ปี", months: 48, vaccine: "วัคซีน 8" },
+      { label: "2 เดือน", months: 2, vaccine: "DTP-HB-Hib1, IPV1, Rota rix 1" },
+      { label: "4 เดือน", months: 4, vaccine: "DTP-HB-Hib2, IPV2, Rota rix 2" },
+      { label: "6 เดือน", months: 6, vaccine: "DTP-HB-Hib3,OPV1" },
+      { label: "9 เดือน", months: 9, vaccine: "MMR1" },
+      { label: "1 ปี", months: 12, vaccine: "LAJE1" },
+      { label: "1 ปี 6 เดือน", months: 18, vaccine: "DTP4 OPV2, MMR2" },
+      { label: "2 ปี 6 เดือน", months: 30, vaccine: "LAJE2" },
+      { label: "4 ปี", months: 48, vaccine: "DTP5,OPV3" },
     ];
 
     const formatDateWithDay = (date) => {
@@ -107,5 +107,70 @@ document
                 ${rows}
               </tbody>
             </table>
+            <p>*หมายเหตุ หากวันพุธ ที่ 2 ของเดือน ตรงกับวันหยุดราชการ จะให้บริการในวันพุธอาทิตย์ถัดไปของเดือนนั้น</p>
+            <a class="print" id="print-button">Print</a>
           `;
   });
+
+document.addEventListener("click", function (event) {
+  if (event.target && event.target.id === "print-button") {
+    const content = document.getElementById("dates-table").innerHTML;
+    const cleanContent = content.replace(
+      /<a\s+class="print"[^>]*>.*?<\/a>/,
+      ""
+    );
+
+    // Generate date stamp in Thai format
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, "0");
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const year = now.getFullYear() + 543; // Thai Buddhist Era
+
+    const thaiDateStamp = `พิมพ์เมื่อ: ${day}/${month}/${year}`;
+
+    const printWindow = window.open("", "", "width=900,height=800");
+    printWindow.document.write(`
+        <html>
+          <head>
+            <title>&nbsp;</title>
+            <style>
+              .header-of-printing1 {
+                font-size: 20px;
+                text-align: center;
+                font-weight: bold;
+                margin-bottom: 18px;
+              }
+              .header-of-printing2 {
+                font-size: 16px;
+                font-weight: bold;
+                margin-bottom: 6px;
+              }
+              .date-stamp {
+                font-size: 16px;
+                margin-bottom: 18px;
+              }
+              table {
+                border-collapse: collapse;
+                width: 100%;
+              }
+              th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="header-of-printing1">โรงพยาบาลส่งเสริมสุขภาพตําบลเกาะแต้ว</div>
+            <div class="header-of-printing2">ตารางนัดฉีดวัคซีนเด็ก</div>
+            <div class="date-stamp">${thaiDateStamp}</div>
+            ${cleanContent}
+          </body>
+        </html>
+      `);
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+    printWindow.close();
+  }
+});

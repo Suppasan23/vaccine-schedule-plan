@@ -12,19 +12,21 @@
 
   <body>
     <div class="Main_Container">
-      <div class="logo">
-        <img src="image/S_86007821-circle.png" width="60" height="60" />
-      </div>
-
       <div class="header">
-        <span>ระบบคำนวณการรับวัคซีน</span>
-        <span>โรงพยาบาลส่งเสริมสุขภาพตำบล</span>
+        <img width="100%" src="image/banner.jpg" alt="banner" />
       </div>
 
       <form class="content" id="kid-form">
-        <div class="content-top"><label>Program</label></div>
+        <img
+          class="content-needle"
+          width="120px"
+          src="image/needle.jpg"
+          alt="needle"
+        />
 
-        <div class="kid-birth-date"><label>วันเกิดเด็ก </label></div>
+        <div class="content-top"><label>DEKDEE KOHTAEW PROGRAM</label></div>
+
+        <div class="kid-birth-date"><label>วัน/เดือน/ปีเกิด </label></div>
         <input
           class="kid-birth-date-input"
           type="date"
@@ -32,13 +34,15 @@
           required
         />
 
-        <div class="hospital-service-date"><label>วันให้บริการ </label></div>
+        <div class="hospital-service-date">
+          <label>วันให้บริการ</label><label>&nbsp;Well Baby Clinic</label>
+        </div>
         <select
           class="hospital-service-date-input"
           name="hospital-service-date"
           required
         >
-          <option value="wednesday">วันพุธที่สองของแต่ละเดือน</option>
+          <option value="wednesday">ทุกวันพุธที่สองของแต่ละเดือน</option>
         </select>
 
         <button class="button-submit" type="submit">Submit</button>
@@ -55,11 +59,30 @@
         ></div>
       </form>
 
-      <div class="footer">
-        <div class="footer-header">
-          สถานที่ตั้ง : <br />
-          เบอร์โทรติดต่อ :
+      <div class="video-section">
+        <h2>วีดีโอคำแนะนำหลังฉีดวัคซีน</h2></br>
+        <video controls>
+          <source src="image/76701636.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="nutrition">
+        <img width="200px" src="image\kid.jpg" alt="kid" />
+        <div>
+          <h2>มาคำนวณโภชนาการเด็กกัน</h2>
+          </br>
+          <h3>
+            คลิกเลย →
+            <a href="https://nutstatcal.kiddiary.in.th"
+              >https://nutstatcal.kiddiary.in.th</a
+            >
+          </h3>
         </div>
+      </div>
+
+      <div class="footer">
+        <img width="100%" src="image\foot-img.jpg" alt="foot-img" />
       </div>
     </div>
 

@@ -59,41 +59,24 @@ html {
 
   /* CSS GRID */
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto;
   grid-template-rows: auto auto auto;
 }
+
 /*---------------------------------------------------------------------------*/
-
-.logo {
-  background-color: #12b886;
-  padding: 0.6rem 0.9rem 0.6rem 0.9rem;
-  border-bottom: 0.1rem solid #1e1e1e;
-  /* FLEXBOX */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .header {
-  background-color: #12b886;
-  color: white;
-  font-family: "NotoSansThaiLooped-SemiBold";
-  font-size: 2.4rem;
-
   border-left: 0.1px solid #1e1e1e;
   border-bottom: 0.1rem solid #1e1e1e;
   /* FLEXBOX */
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 0.6rem;
 }
 /*---------------------------------------------------------------------------*/
 
 /*NOT LOG-IN ZONE*/
 .content {
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   border-bottom: 0.1rem solid #1e1e1e;
   grid-column: 1/-1;
   font-family: "NotoSansThaiLooped-Regular";
@@ -102,16 +85,26 @@ html {
   /* CSS GRID */
   display: grid;
   grid-template-columns: repeat(32, 1fr);
-  grid-template-rows: 1.6rem auto 1.2rem auto 1.2rem auto 1.2rem auto auto auto 1.6rem;
+  grid-template-rows: 1.6rem auto 1.2rem auto 1.2rem auto 1.2rem auto 1.2rem auto 1.2rem auto auto 1.6rem;
   column-gap: 0.5rem;
   justify-items: center;
 }
 
 /*1/2*/
 
-.content-top {
+.content-needle {
   grid-column: 1/-1;
   grid-row: 2/3;
+
+  justify-self: center;
+  align-self: center;
+}
+
+/*3/4*/
+
+.content-top {
+  grid-column: 1/-1;
+  grid-row: 4/5;
 
   justify-self: center;
   align-self: center;
@@ -120,35 +113,16 @@ html {
   font-family: "NotoSansThaiLooped-SemiBold";
 }
 
-/*3/4*/
-
-.kid-birth-date {
-  grid-column: 1/13;
-  grid-row: 4/5;
-  align-self: center;
-  justify-self: end;
-}
-
-.kid-birth-date-input {
-  background-color: #fff4d6;
-  font-size: 1.8rem;
-  height: 3rem;
-  grid-column: 13/23;
-  grid-row: 4/5;
-  align-self: center;
-  width: 100%;
-}
-
 /*5/6*/
 
-.hospital-service-date {
+.kid-birth-date {
   grid-column: 1/13;
   grid-row: 6/7;
   align-self: center;
   justify-self: end;
 }
 
-.hospital-service-date-input {
+.kid-birth-date-input {
   background-color: #fff4d6;
   font-size: 1.8rem;
   height: 3rem;
@@ -160,6 +134,33 @@ html {
 
 /*7/8*/
 
+.hospital-service-date {
+  grid-column: 1/13;
+  grid-row: 8/9;
+  align-self: center;
+  justify-self: end;
+
+  /* FLEXBOX */
+  display: flex;
+  flex-direction: row;
+}
+
+.hospital-service-date label {
+  align-self: flex-end;
+}
+
+.hospital-service-date-input {
+  background-color: #fff4d6;
+  font-size: 1.8rem;
+  height: 3rem;
+  grid-column: 13/23;
+  grid-row: 8/9;
+  align-self: center;
+  width: 100%;
+}
+
+/*9/10*/
+
 .button-submit {
   background-color: #e9ff32;
   height: 4rem;
@@ -170,7 +171,7 @@ html {
   font-size: 1.5rem;
 
   grid-column: 1/23;
-  grid-row: 8/9;
+  grid-row: 10/11;
   align-self: center;
   justify-self: end;
 }
@@ -184,11 +185,11 @@ html {
   transform: scale(0.96);
 }
 
-/*8/9*/
+/*11/12*/
 
 .show-result-kid-age {
   grid-column: 1/-1;
-  grid-row: 9/10;
+  grid-row: 12/13;
 
   justify-self: center;
   align-self: center;
@@ -196,10 +197,14 @@ html {
 
 .show-result-kid-schedule {
   grid-column: 1/-1;
-  grid-row: 10/11;
+  grid-row: 13/14;
 
   justify-self: center;
   align-self: center;
+
+  /* FLEXBOX */
+  display: flex;
+  flex-direction: column;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -284,44 +289,73 @@ html {
 
 /*---------------------------------------------------------------------------*/
 
-.footer {
-  background-color: #cbe3c2;
+.nutrition {
+  background-color: #faa2c1;
   grid-column: 1/-1;
-  padding: 0.8rem 0.9rem 0.8rem 0.9rem;
-  font-family: "NotoSansThaiLooped-Regular";
-  font-size: 1.4rem;
+  border-bottom: 0.1rem solid #1e1e1e;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
-  /* FLEXBOX */
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  /* CSS GRID */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.5rem;
+  justify-items: center;
+  column-gap: 12px;
 }
 
-.footer-header {
-  font-family: "NotoSansThaiLooped-SemiBold";
-  font-size: 1.4rem;
+.nutrition img {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  align-self: center;
+  justify-self: flex-end;
+  border: 0.1rem solid black;
+  margin: 5px;
 }
 
-.footer-credit {
-  align-self: flex-end;
-  font-size: 1.22rem;
-  color: #1b5813;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: flex-end;
+.nutrition div {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  align-self: flex-start;
+  justify-self: flex-start;
+  margin: 5px;
 }
 
-.say-may-name {
-  font-family: "NotoSansThaiLooped-SemiBold";
+.nutrition div h2 {
+  font-size: 18px;
 }
+
+.nutrition div h3 {
+  font-size: 16px;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.video-section {
+  background-color: #69db7c;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0.1rem solid #1e1e1e;
+}
+
+.video-section h2 {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.video-section video {
+  width: 90%;
+  border: 0.1rem solid #1e1e1e;
+}
+/*---------------------------------------------------------------------------*/
 
 thead,
 th,
 tr,
 td {
-  text-align: center;
+  text-align: left;
   padding: 0.8rem 2rem 0.8rem 2rem;
   font-size: 1.6rem;
 }
@@ -332,4 +366,12 @@ th {
 
 tr {
   background-color: white;
+}
+
+a.print {
+  cursor: pointer;
+  color: blue;
+  font-size: 18px;
+  text-decoration: underline;
+  align-self: start;
 }
