@@ -67,6 +67,7 @@ html {
 .header {
   border-left: 0.1px solid #1e1e1e;
   border-bottom: 0.1rem solid #1e1e1e;
+  grid-column: 1/-1;
   /* FLEXBOX */
   display: flex;
   justify-content: center;
@@ -335,6 +336,7 @@ html {
 .video-section {
   background-color: #69db7c;
   text-align: center;
+  grid-column: 1/-1;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 0.1rem solid #1e1e1e;
@@ -374,4 +376,9 @@ a.print {
   font-size: 18px;
   text-decoration: underline;
   align-self: start;
+}
+
+/*---------------------------------------------------------------------------*/
+footer {
+  grid-column: 1/-1;
 }

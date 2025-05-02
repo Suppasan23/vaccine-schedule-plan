@@ -42,9 +42,9 @@ document
       { label: "4 เดือน", months: 4, vaccine: "DTP-HB-Hib2, IPV2, Rota rix 2" },
       { label: "6 เดือน", months: 6, vaccine: "DTP-HB-Hib3,OPV1" },
       { label: "9 เดือน", months: 9, vaccine: "MMR1" },
-      { label: "1 ปี", months: 12, vaccine: "LAJE1" },
+      { label: "1 ปี", months: 12, vaccine: "JE1" },
       { label: "1 ปี 6 เดือน", months: 18, vaccine: "DTP4 OPV2, MMR2" },
-      { label: "2 ปี 6 เดือน", months: 30, vaccine: "LAJE2" },
+      { label: "2 ปี 6 เดือน", months: 30, vaccine: "JE2" },
       { label: "4 ปี", months: 48, vaccine: "DTP5,OPV3" },
     ];
 
