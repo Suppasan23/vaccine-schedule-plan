@@ -290,49 +290,6 @@ html {
 
 /*---------------------------------------------------------------------------*/
 
-.nutrition {
-  background-color: #faa2c1;
-  grid-column: 1/-1;
-  border-bottom: 0.1rem solid #1e1e1e;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  /* CSS GRID */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 0.5rem;
-  justify-items: center;
-  column-gap: 12px;
-}
-
-.nutrition img {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  align-self: center;
-  justify-self: flex-end;
-  border: 0.1rem solid black;
-  margin: 5px;
-}
-
-.nutrition div {
-  grid-column: 2/3;
-  grid-row: 1/2;
-  align-self: flex-start;
-  justify-self: flex-start;
-  margin: 5px;
-}
-
-.nutrition div h2 {
-  font-size: 18px;
-}
-
-.nutrition div h3 {
-  font-size: 16px;
-}
-
-/*---------------------------------------------------------------------------*/
-
 .video-section {
   background-color: #69db7c;
   text-align: center;
