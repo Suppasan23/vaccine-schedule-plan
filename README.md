@@ -1,1 +1,1 @@
-https://is.songkhlapao.go.th/vaccine/
+ลิงค์ → https://is.songkhlapao.go.th/vaccine/
